@@ -1,0 +1,12 @@
+const { Kafka } = require('kafkajs');
+
+// Kafka client configuration
+const kafka = new Kafka({
+  clientId: 'my-app',
+  brokers: ['localhost:9092'], // Kafka broker address
+});
+
+const producer = kafka.producer();
+const consumer = kafka.consumer({ groupId: 'service1-group' });
+
+module.exports = { producer, consumer };
